@@ -49,12 +49,14 @@ public class PlayerGrid:MonoBehaviour
         int column = Random.Range(0, 3);
         while (Cubes[row, column] != null)
         {
+            tempCubes.Remove(Cubes[row, column]);
+            
             if(tempCubes.Count==0)
             {
                 if(!CheckGameEnd()) OnGameEnd?.Invoke();
                 return new Vector2(100, 100);
             }
-            tempCubes.Remove(Cubes[row, column]);
+            
             row = Random.Range(0, 3);
             column = Random.Range(0, 3);
         }
