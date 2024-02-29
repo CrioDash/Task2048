@@ -85,6 +85,8 @@ public class Cube:MonoBehaviour
             yield return null;
         }
 
+        transform.localScale = endScale;
+
         t = 0;
 
         while (t<1)
