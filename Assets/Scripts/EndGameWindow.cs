@@ -17,6 +17,8 @@ public class EndGameWindow:MonoBehaviour
         private SwipeService _swipeService;
         private CanvasGroup _canvasGroup;
 
+        private Coroutine _runningRoutine;
+
         [Inject]
         public void Construct(PlayerGrid playerGrid, SwipeService swipeService)
         {
@@ -33,9 +35,11 @@ public class EndGameWindow:MonoBehaviour
 
         private void ShowWindow()
         {
+                if(_runningRoutine!=null) return;
+                
                 _swipeService.SetPause();
                 _canvasGroup.blocksRaycasts = true;
-                StartCoroutine(ShowWindowRoutine());
+                _runningRoutine = StartCoroutine(ShowWindowRoutine());
         }
 
         private IEnumerator ShowWindowRoutine()
