@@ -44,6 +44,9 @@ public class CubeFactory: MonoBehaviour
             cube.SetStats(2);
             _playerGrid.Cubes[(int)spawnPos.x, (int)spawnPos.y] = cube;
         }
+        
+        
+        
     }
 
 }

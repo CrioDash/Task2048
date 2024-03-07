@@ -53,7 +53,7 @@ public class PlayerGrid:MonoBehaviour
             
             if(tempCubes.Count==0)
             {
-                if(!CheckGameEnd()) OnGameEnd?.Invoke();
+                if(!IsGameEnd()) OnGameEnd?.Invoke();
                 return new Vector2(100, 100);
             }
             
@@ -64,7 +64,7 @@ public class PlayerGrid:MonoBehaviour
         return new Vector2(row, column);
     }
 
-    private bool CheckGameEnd()
+    private bool IsGameEnd()
     {
         for (int i = 0; i < 3; i++)
         {

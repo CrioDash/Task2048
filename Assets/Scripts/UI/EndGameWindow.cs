@@ -14,22 +14,24 @@ public class EndGameWindow:MonoBehaviour
         [SerializeField] private AnimationCurve animationCurve;
         
         private PlayerGrid _playerGrid;
+        private SceneSwitcher _sceneSwitcher;
         private SwipeService _swipeService;
         private CanvasGroup _canvasGroup;
 
         private Coroutine _runningRoutine;
 
         [Inject]
-        public void Construct(PlayerGrid playerGrid, SwipeService swipeService)
+        public void Construct(PlayerGrid playerGrid, SwipeService swipeService, SceneSwitcher sceneSwitcher)
         {
                 _playerGrid = playerGrid;
+                _sceneSwitcher = sceneSwitcher;
                 _swipeService = swipeService;
         }
 
         private void Awake()
         {
                 _canvasGroup = GetComponent<CanvasGroup>();
-                GetComponentInChildren<Button>().onClick.AddListener(()=> SceneManager.LoadScene(0));
+                GetComponentInChildren<Button>().onClick.AddListener(()=> _sceneSwitcher.LoadNextScene(1));
                 _playerGrid.OnGameEnd += ShowWindow;
         }
 
