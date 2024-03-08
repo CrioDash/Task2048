@@ -2,7 +2,8 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class ScoreText:MonoBehaviour
+public class 
+    ScoreText:MonoBehaviour
 {
     private int _score = 0;
     private TextMeshProUGUI _text;
